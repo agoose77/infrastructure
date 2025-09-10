@@ -54,6 +54,7 @@ jupyterhub:
             </p>
           </div>
   hub:
+    concurrentSpawnLimit: 200
     config:
       JupyterHub:
         authenticator_class: cilogon
