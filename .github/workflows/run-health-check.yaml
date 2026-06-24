@@ -112,15 +112,12 @@ jobs:
         GCP_KMS_DECRYPTOR_KEY: ${{ secrets.GCP_KMS_DECRYPTOR_KEY }}
 
     - name: Run health check against ${{ matrix.jobs.cluster_name }} ${{ matrix.jobs.hub_name }}
-      uses: nick-fields/retry@v4
       id: health_check
-      with:
-        timeout_minutes: 10
-        max_attempts: 3
-        command: |
-          echo "health_check_output<<EOF" >> "$GITHUB_OUTPUT"
-          deployer run-hub-health-check ${{ matrix.jobs.cluster_name }} ${{ matrix.jobs.hub_name }} | tee --append "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+      run: |
+        set -euo pipefail
+        echo "health_check_output<<EOF" >> "$GITHUB_OUTPUT"
+        deployer run-hub-health-check ${{ matrix.jobs.cluster_name }} ${{ matrix.jobs.hub_name }} --attempts 3 --attempt-timeout-s=600 | tee --append "$GITHUB_OUTPUT"
+        echo "EOF" >> "$GITHUB_OUTPUT"
 
 
   upgrade-prod:
@@ -148,12 +145,9 @@ jobs:
         GCP_KMS_DECRYPTOR_KEY: ${{ secrets.GCP_KMS_DECRYPTOR_KEY }}
 
     - name: Run health check against ${{ matrix.jobs.cluster_name }} ${{ matrix.jobs.hub_name }}
-      uses: nick-fields/retry@v4
       id: health_check
-      with:
-        timeout_minutes: 10
-        max_attempts: 3
-        command: |
-          echo "health_check_output<<EOF" >> "$GITHUB_OUTPUT"
-          deployer run-hub-health-check ${{ matrix.jobs.cluster_name }} ${{ matrix.jobs.hub_name }} | tee --append "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+      run: |
+        set -euo pipefail
+        echo "health_check_output<<EOF" >> "$GITHUB_OUTPUT"
+        deployer run-hub-health-check ${{ matrix.jobs.cluster_name }} ${{ matrix.jobs.hub_name }} --attempts 3 --attempt-timeout-s=600 | tee --append "$GITHUB_OUTPUT"
+        echo "EOF" >> "$GITHUB_OUTPUT"
