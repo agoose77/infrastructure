@@ -51,3 +51,8 @@ The remainder of our documentation is organised as such:
   [terraform-docs](https://github.com/terraform-docs/terraform-docs) for
   terraform code, JSON Schema based document generator for YAML, etc. This helps
   them keep in sync with what we are actually doing.
+
+## Style guide
+
+1. Use sentence case for all titles and subtitles.
+2. Use `short_title` in frontmatter to set sidebar-friendly titles.
