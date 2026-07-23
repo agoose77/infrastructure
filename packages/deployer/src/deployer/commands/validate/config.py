@@ -15,8 +15,6 @@ from pathlib import Path
 
 import jsonschema
 import typer
-from ruamel.yaml import YAML
-
 from deployer.cli_app import validate_app
 from deployer.infra_components.cluster import Cluster
 from deployer.utils.file_acquisition import (
@@ -24,6 +22,7 @@ from deployer.utils.file_acquisition import (
     REPO_ROOT_PATH,
 )
 from deployer.utils.rendering import print_colour
+from ruamel.yaml import YAML
 
 yaml = YAML(typ="safe", pure=True)
 

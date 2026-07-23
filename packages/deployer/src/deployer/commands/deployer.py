@@ -8,8 +8,6 @@ import subprocess
 import sys
 
 import typer
-from ruamel.yaml import YAML
-
 from deployer.cli_app import CONTINUOUS_DEPLOYMENT, app
 from deployer.commands.validate.config import (
     cleanup_values_schema_json,
@@ -29,6 +27,7 @@ from deployer.utils.file_acquisition import (
     get_decrypted_file,
 )
 from deployer.utils.rendering import print_colour
+from ruamel.yaml import YAML
 
 # Without `pure=True`, I get an exception about str / byte issues
 yaml = YAML(typ="safe", pure=True)

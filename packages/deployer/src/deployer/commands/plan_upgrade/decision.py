@@ -6,11 +6,10 @@ added or modified in a GitHub Pull Request.
 
 import fnmatch
 
+from deployer.utils.rendering import print_colour
 from rich.console import Console
 from rich.table import Table
 from ruamel.yaml import YAML
-
-from deployer.utils.rendering import print_colour
 
 yaml = YAML(typ="safe", pure=True)
 

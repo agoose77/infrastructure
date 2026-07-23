@@ -7,8 +7,6 @@ import tempfile
 from contextlib import ExitStack, contextmanager
 from pathlib import Path
 
-from ruamel.yaml import YAML
-
 from deployer.infra_components.hub import Hub
 from deployer.utils.env_vars_management import unset_env_vars
 from deployer.utils.file_acquisition import (
@@ -20,6 +18,7 @@ from deployer.utils.file_acquisition import (
 from deployer.utils.helm import wait_for_deployments_daemonsets
 from deployer.utils.jsonnet import render_jsonnet
 from deployer.utils.rendering import print_colour
+from ruamel.yaml import YAML
 
 yaml = YAML(typ="rt")
 

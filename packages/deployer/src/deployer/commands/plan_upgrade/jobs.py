@@ -2,11 +2,10 @@ import json
 import os
 
 import typer
-from ruamel.yaml import YAML
-
 from deployer.cli_app import CONTINUOUS_DEPLOYMENT, app
 from deployer.utils.file_acquisition import REPO_ROOT_PATH, get_all_cluster_yaml_files
 from deployer.utils.rendering import create_markdown_comment, print_colour
+from ruamel.yaml import YAML
 
 from .decision import (
     assign_staging_jobs_for_missing_clusters,
