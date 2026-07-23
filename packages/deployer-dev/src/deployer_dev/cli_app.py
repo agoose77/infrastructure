@@ -7,32 +7,21 @@ deployer.py, debug related stuff under debug.py, etc
 """
 
 import typer
-
-# Category for tools that are required in CI/CD
-CONTINUOUS_DEPLOYMENT = "Continuous Deployment"
+from deployer.cli_app import app
 
 # Category for local developmen tools
 DEVELOPMENT = "Development"
 
-# The typer app to which all subcommands are attached
-# Disable 'pretty' exception handling
-app = typer.Typer(rich_markup_mode="markdown", pretty_exceptions_show_locals=False)
+
 generate_app = typer.Typer(pretty_exceptions_show_locals=False)
 config_app = typer.Typer(pretty_exceptions_show_locals=False)
 cilogon_client_app = typer.Typer(pretty_exceptions_show_locals=False)
 debug_app = typer.Typer(pretty_exceptions_show_locals=False)
 exec_app = typer.Typer(pretty_exceptions_show_locals=False)
 grafana_app = typer.Typer(pretty_exceptions_show_locals=False)
-validate_app = typer.Typer(pretty_exceptions_show_locals=False)
 transform_app = typer.Typer(pretty_exceptions_show_locals=False)
 update_app = typer.Typer(pretty_exceptions_show_locals=False)
 
-app.add_typer(
-    validate_app,
-    name="validate",
-    help="Validate configuration files such as helm chart values and cluster.yaml files.",
-    rich_help_panel=CONTINUOUS_DEPLOYMENT,
-)
 
 app.add_typer(
     generate_app,

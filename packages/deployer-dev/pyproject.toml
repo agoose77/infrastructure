@@ -13,6 +13,8 @@ dependencies = [
 
 ]
 
+[project.entry-points."deployer.apps"]
+deployer-dev = "deployer_dev.commands"
 
 [tool.isort]
 profile = "black"
@@ -29,5 +31,5 @@ ignore-words-list = 'aks'
 
 [tool.black]
 force-exclude = '''
-deployer/dev_commands/generate/cryptnono_config/enc-blocklist-generator.secret.py
+src/deployer_dev/commands/generate/cryptnono_config/enc-blocklist-generator.secret.py
 '''

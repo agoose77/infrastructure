@@ -32,6 +32,9 @@ app.add_typer(
 def load_app():
     entrypoints = importlib.metadata.entry_points(group="deployer.apps")
     for ep in entrypoints:
+        # Ensure we load the entrypoint
+        # We rely on side-effects for now.
         plugin = ep.load()
-        plugin(app)
+        if callable(plugin):
+            plugin(app)
     return app
