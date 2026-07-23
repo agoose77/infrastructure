@@ -2,8 +2,6 @@ import os
 from pathlib import Path
 from unittest import TestCase, mock
 
-from ruamel.yaml import YAML
-
 from deployer.commands.plan_upgrade.decision import (
     assign_staging_jobs_for_missing_clusters,
     discover_modified_common_files,
@@ -12,6 +10,7 @@ from deployer.commands.plan_upgrade.decision import (
     generate_support_matrix_jobs,
 )
 from deployer.utils.file_acquisition import get_all_cluster_yaml_files
+from ruamel.yaml import YAML
 
 yaml = YAML(typ="safe", pure=True)
 case = TestCase()

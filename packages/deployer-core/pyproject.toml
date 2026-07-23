@@ -9,13 +9,17 @@ version = "0.0.1"
 readme = "README.md"
 license = "BSD-3-Clause"
 requires-python = ">=3.13"
-dynamic = ["dependencies", "optional-dependencies"]
-
-[tool.hatch.metadata.hooks.requirements_txt]
-files = ["requirements.txt"]
-
-[tool.hatch.metadata.hooks.requirements_txt.optional-dependencies]
-dev = ["dev-requirements.txt"]
+dependencies = [
+  # ruamel.yaml is used to read and write .yaml files.
+  "ruamel.yaml==0.19.*",
+  # jsonschema is used for validating cluster.yaml configurations
+  "jsonschema==4.*",
+  # rich, py-markdown-table, tabulate are used for pretty printing outputs that would otherwise
+  # be difficult to parse by a human
+  "rich==15.*",
+  "typer==0.26.*",
+  "py-markdown-table==1.3.*"
+]
 
 [project.scripts]
 deployer = "deployer.__main__:main"
@@ -37,7 +41,4 @@ testpaths = [
 skip = '.git,*.pdf,*.svg,*.secret.*,*.key'
 ignore-words-list = 'aks'
 
-[tool.black]
-force-exclude = '''
-deployer/dev_commands/generate/cryptnono_config/enc-blocklist-generator.secret.py
-'''
+
