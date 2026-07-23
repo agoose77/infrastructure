@@ -6,9 +6,9 @@ import asyncio
 from pathlib import Path
 
 import pandas as pd
+from deployer_dev.commands.exec.cost_monitoring.cost_monitoring_app import query
 from ruamel.yaml import YAML
 
-from deployer.dev_commands.exec.cost_monitoring.cost_monitoring_app import query
 from docs.helper_programs.hub_info_table import get_cluster_grafana_url
 from docs.helper_programs.utils import get_cluster_provider, get_clusters_list
 
