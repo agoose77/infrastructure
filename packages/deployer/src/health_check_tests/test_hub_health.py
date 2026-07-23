@@ -1,8 +1,9 @@
 import os
 from pathlib import Path
 
-from deployer.utils.rendering import print_colour
 from jhub_client.execute import JupyterHubAPI, execute_notebook
+
+from deployer.utils.rendering import print_colour
 
 
 def notebook_dir(hub_type):
