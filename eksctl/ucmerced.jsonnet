@@ -22,7 +22,8 @@ local c = cluster.makeCluster(
   ],
   hubs=['staging', 'prod'],
   notebookGPUNodeGroups=[],
-  nodeGroupGenerations=['a']
+  // TODO: delete r5.2xlarge-a
+  nodeGroupGenerations=['a', 'b']
 );
 
 c
